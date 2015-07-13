@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Thread Priority List</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+	</head>
+	<body>
+
+		<div id='header'>
+			<h1 class="logo">Thread Priority List</h1>
+		</div>
+
+		<ul id='navbar'>
+			<li><a href='/'>Home</a></li>
+			<li><a href='/read/thread'>Read Thread</a></li>
+			<li><a href='/read/thread_day'>Read Day of Threads</a></li>
+		</ul>
+
+		<br/>
+
+		<ul id='forum_chooser'>
+			{% for f in forums %}
+			{% if forum_index == f.index %}
+			<li id='chosen_forum'><a href='/forum/{{f.index}}'>{{f.title}}</a></li>
+			{% else %}
+			<li><a href='/forum/{{f.index}}'>{{f.title}}</a></li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+
+		<br/>
+
+		<ul id='list_chooser'>
+			{% for l in lists %}
+			{% if index == l.index %}
+			<li id='chosen_list'><a href='/list/{{l.index}}'>{{l.title}}</a></li>
+			{% else %}
+			<li><a href='/list/{{l.index}}'>{{l.title}}</a></li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+
+		<br/>
+
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,6 @@
+div.content {
+	border:solid 1px black;
+}
+#chosen_list, #chosen_forum {
+	font-weight:bold;
+}

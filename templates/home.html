@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<ul>
+{% for t in threads %}
+<li><a href='/thread/{{t.id}}'>{{t.title}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+
