@@ -31,7 +31,10 @@ class feed:
 	
 	def retrieve_content(self):
 		if self.content_stream is None:
-			self.cur.execute('select * from ((select post_text as text, id, user_id, thread_id, post_time, 1 as ispost from forum_posts) union (select comment_text as text, id, user_id, thread_id, post_time, 0 as ispost from forum_comments) order by post_time) as t')
+			if self.database_name in ['POSA']:
+				self.cur.execute('select * from ((select post_text as text, id, forum_user_id as user_id, thread_id, post_time, 1 as ispost from forum_posts) union (select comment_text as text, id, forum_user_id as user_id, thread_id, post_time, 0 as ispost from forum_comments) order by post_time) as t')
+			else:
+				self.cur.execute('select * from ((select post_text as text, id, user_id, thread_id, post_time, 1 as ispost from forum_posts) union (select comment_text as text, id, user_id, thread_id, post_time, 0 as ispost from forum_comments) order by post_time) as t')
 			self.content_stream = list(self.cur.fetchall())
 		if len(self.content_stream) == 0:
 			return None

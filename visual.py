@@ -78,10 +78,13 @@ if __name__ == '__main__':
 	forum_list.append(forum(feed('Nutrition2')))
 	forum_list.append(forum(feed('Innovation')))
 	forum_list.append(forum(feed('Innovation2')))
+	forum_list.append(forum(feed('POSA')))
+	forum_list.append(forum(feed('POSA2')))
 	for f in forum_list:
 		heap.priority_list(f, analize.evaluate, 'default')
 		heap.priority_list(f, analize.question_marks, 'question_marks')
-		heap.priority_list(f, lambda x: -analize.evaluate(x), 'reversed')
+		heap.priority_list(f, analize.question_words, 'question_words')
+		heap.priority_list(f, analize.social_words, 'social_words')
 		f.get_next_day()
 	app.run(debug=True, host='0.0.0.0')
 	
