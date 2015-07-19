@@ -1,8 +1,8 @@
-import analize
+import analyze
 
 # define the heap
 class priority_list:
-	def __init__(self, forum, eval_fun=analize.evaluate, title='default'):
+	def __init__(self, forum, eval_fun=analyze.evaluate, title='default'):
 		self.forum = forum
 		self.eval_fun = eval_fun
 		self.title = title

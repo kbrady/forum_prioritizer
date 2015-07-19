@@ -2,7 +2,7 @@ import feed
 import datetime
 import heap
 import unittest
-import analize
+import analyze
 import forum
 
 class TestStream(unittest.TestCase):
@@ -33,8 +33,8 @@ class TestHeap(TestStream):
 		self.content_stream = []
 		self.content_counter = 0
 		self.forum = forum.forum(self.feed)
-		heap.priority_list(self.forum, lambda x: analize.evaluate(x))
-		heap.priority_list(self.forum, lambda x: -analize.evaluate(x))
+		heap.priority_list(self.forum, lambda x: analyze.evaluate(x))
+		heap.priority_list(self.forum, lambda x: -analyze.evaluate(x))
 	
 	def test_build(self):
 		# check correct before first content

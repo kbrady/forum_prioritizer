@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, Markup, redirect, url_for
-import analize
+import analyze
 import string
 from forum import forum
 import heap
@@ -81,10 +81,10 @@ if __name__ == '__main__':
 	forum_list.append(forum(feed('POSA')))
 	forum_list.append(forum(feed('POSA2')))
 	for f in forum_list:
-		heap.priority_list(f, analize.evaluate, 'default')
-		heap.priority_list(f, analize.question_marks, 'question_marks')
-		heap.priority_list(f, analize.question_words, 'question_words')
-		heap.priority_list(f, analize.social_words, 'social_words')
+		heap.priority_list(f, analyze.evaluate, 'default')
+		heap.priority_list(f, analyze.question_marks, 'question_marks')
+		heap.priority_list(f, analyze.question_words, 'question_words')
+		heap.priority_list(f, analyze.social_words, 'social_words')
 		f.get_next_day()
 	app.run(debug=True, host='0.0.0.0')
 	

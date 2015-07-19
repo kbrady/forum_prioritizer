@@ -1,4 +1,4 @@
-import analize
+import analyze
 import heap
 from feed import feed
 from datetime import datetime, timedelta
@@ -55,7 +55,7 @@ class thread_node:
 			my_list += self.child.post_list()
 		return my_list
 	
-	def evaluate(self, eval_fun=analize.evaluate):
+	def evaluate(self, eval_fun=analyze.evaluate):
 		return eval_fun(self)
 	
 	def __repr__(self):
